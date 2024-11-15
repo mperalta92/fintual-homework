@@ -28,7 +28,7 @@ A new parameter called data_interface was added that allows the stock price to b
 # Installation
 
 ## Clonar el repositorio
-git clone https://github.com/tu_usuario/portfolio_class.git
+git clone https://github.com/mperalta92/fintual-homework.git
 
 ## Create and activate a virtual environment (recommended)
 ```bash
@@ -40,6 +40,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 ```
+## make .env file
+implemented the price method of a stock with an API service called Polygon.io
+When you create an account, they give you a free API_KEY and you can put it in a .env file to check prices in real time. Anyway, I have an API_KEY that you can use when reviewing this assignment. Just send me an email and I will send the API_KEY to do the tests. Otherwise, the Tests of the PolygonExternalAPITest class will fail.
+
+To create the .env file you can copy the .env-example file add the API_KEY and rename the file to .env
+
+
 ### Run testing
 ```bash
 python -m unittest discover tests -p '*_test.py'

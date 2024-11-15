@@ -17,11 +17,13 @@ class PolygonExternalApi(StocksDataInterface):
         url = f"{self.base_url}/v1/open-close/{stock_name}/{date.strftime('%Y-%m-%d')}?apiKey={self.api_key}"
         response = requests.get(url)
         response_json = response.json()
-        if response.status_code == 403:
-            raise PolygonApiException(PolygonApiException.ErrorType.INVALID_API_KEY, response_json["message"])
-        if response.status_code == 404:
-            raise PolygonApiException(PolygonApiException.ErrorType.NOT_FOUND, response_json["message"])
         if response.status_code != 200:
-            raise PolygonApiException(PolygonApiException.ErrorType.UNKNOWN, response_json["message"])
+            error_message = response_json["message"] if 'message' in response_json else response_json["error"]
+            if response.status_code in [401, 403]:
+                raise PolygonApiException(PolygonApiException.ErrorType.INVALID_API_KEY, error_message)
+            elif response.status_code == 404:
+                raise PolygonApiException(PolygonApiException.ErrorType.NOT_FOUND, error_message)
+            else:       
+                raise PolygonApiException(PolygonApiException.ErrorType.UNKNOWN, error_message)
         price = response_json["close"]
         return price
