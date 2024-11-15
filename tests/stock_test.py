@@ -1,5 +1,5 @@
 from unittest import TestCase, mock
-from app.stock import Stock
+from app.domain.stock import Stock
 from app.services.stocks_data_interface import StocksDataInterface
 
 

@@ -1,5 +1,5 @@
 from unittest import TestCase, mock
-from app.stock_account import StockAccount
+from app.domain.stock_account import StockAccount
 
 class StockAccountTest(TestCase):
 
@@ -10,4 +10,4 @@ class StockAccountTest(TestCase):
         stock = mock.Mock()
         stock.price.return_value = 87.36
         stock_account = StockAccount(stock, quantity)
-        self.assertEqual(stock_account.price(date), 873.6)
+        self.assertEqual(stock_account.value(date), 873.6)

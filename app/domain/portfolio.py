@@ -1,5 +1,5 @@
 from datetime import date
-from app.stock_account import StockAccount
+from app.domain.stock_account import StockAccount
 
 class Portfolio:
 
@@ -20,7 +20,7 @@ class Portfolio:
         return total_value_on_final_date - total_value_on_initial_date
     
     def _total_value(self, date: date):
-        return sum([stock_account.price(date) for stock_account in self.stocks])
+        return sum([stock_account.value(date) for stock_account in self.stocks])
     
     def _annualized_return(self, initial_value, final_value, initial_date, final_date):
         days = (final_date - initial_date).days

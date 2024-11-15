@@ -1,4 +1,4 @@
-from app.stock import Stock
+from app.domain.stock import Stock
 
 
 class StockAccount:
@@ -10,7 +10,7 @@ class StockAccount:
         self.stock = stock
         self.quantity = quantity
 
-    def price(self, date):
+    def value(self, date):
         """
         this method returns the value of the stock account on a given date
         """
