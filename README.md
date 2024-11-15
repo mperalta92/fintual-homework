@@ -1,7 +1,5 @@
 # Fintual code homework
 
-## Introduction
-
 ## Portfolio Class
 ### Descripción
 
