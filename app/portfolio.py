@@ -1,5 +1,4 @@
 from datetime import date
-from app.stock import Stock
 from app.stock_account import StockAccount
 
 class Portfolio:
